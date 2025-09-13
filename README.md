@@ -19,7 +19,7 @@ A full-stack web application built with the MERN stack: MongoDB, Express.js, Rea
 
 ⚙️ Installation & Setup
 1. Clone the repository
-git clone https://github.com/your-username/project-name.git
+git clone https://github.com/imswag99/mern-finance-tracker.git
 cd project-name
 
 2. Install dependencies
