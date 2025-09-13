@@ -97,7 +97,7 @@ const Transactions = () => {
                                             <h1>
                                                 {moment(
                                                     transaction.date
-                                                ).format("DD MMM YYYY")}
+                                                ).format("YYYY-MM-DD")}
                                             </h1>
                                             <div
                                                 className={

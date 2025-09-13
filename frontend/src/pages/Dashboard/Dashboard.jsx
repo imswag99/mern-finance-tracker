@@ -115,7 +115,7 @@ const Dashboard = () => {
                                             </h1>
                                             <p className="text-gray-400 max-sm:text-sm">
                                                 {moment(item.date).format(
-                                                    "DD MMM YYYY"
+                                                    "YYYY-MM-DD"
                                                 )}
                                             </p>
                                         </div>
