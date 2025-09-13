@@ -5,7 +5,7 @@ import { UserContext } from "../context/UserContext";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify'
 
 const AddMenu = ({
     setShowAddMenu,
@@ -33,11 +33,7 @@ const AddMenu = ({
 
         const response = await axios.post(
             `${url}/api/transaction/addTransaction`,
-            {
-                credentials: "include",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
-            }
+            data
         );
         loadTransactionData();
         if (response.data.success) {
@@ -59,11 +55,7 @@ const AddMenu = ({
     const editTransaction = async (e, id) => {
         e.preventDefault();
 
-        const response = await axios.put(`${url}/api/transaction/${id}`, {
-            credentials: "include",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data),
-        });
+        const response = await axios.put(`${url}/api/transaction/${id}`, data);
         loadTransactionData();
         if (response.data.success) {
             toast.success(response.data.message);
@@ -85,7 +77,7 @@ const AddMenu = ({
     const handleGoBackBtn = () => {
         setSingleTransaction(null);
         setShowAddMenu(false);
-    };
+    }
 
     return !singleTransaction ? (
         <div className="w-full text-white text-lg">
@@ -200,7 +192,9 @@ const AddMenu = ({
                         required
                         onChange={onChangeHandler}
                         name="date"
-                        value={moment(data.date).format("YYYY-MM-DD")}
+                        value={moment(data.date).format(
+                            "YYYY-MM-DD"
+                        )}
                     />
                 </div>
                 <div className="w-full flex flex-col gap-3 justify-center">

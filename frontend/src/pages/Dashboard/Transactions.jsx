@@ -16,14 +16,11 @@ const Transactions = () => {
     const [allTransactions, setAllTransactions] = useState(null);
     const [singleTransaction, setSingleTransaction] = useState(null);
     const [ready, setReady] = useState(false);
-    const { url, setCurrPage } = useContext(UserContext);
+    const { url, setCurrPage} = useContext(UserContext);
     // const navigate = useNavigate();
     const loadTransactionData = async () => {
         await axios
-            .get(`${url}/api/transaction/getTransactions`, {
-                credentials: "include",
-                headers: { "Content-Type": "application/json" },
-            })
+            .get(`${url}/api/transaction/getTransactions`)
             .then((response) => {
                 if (response.data.success) {
                     setAllTransactions(response.data.transactions);
@@ -36,24 +33,21 @@ const Transactions = () => {
         loadTransactionData();
     }, []);
 
-    const handleDelete = async (id) => {
-        const response = await axios.delete(`${url}/api/transaction/${id}`, {
-            credentials: "include",
-            headers: { "Content-Type": "application/json" }
-        });
+    const handleDelete = async(id) => {
+        const response = await axios.delete(`${url}/api/transaction/${id}`);
         await loadTransactionData();
-        if (response.data.success) {
+        if(response.data.success) {
             toast.success(response.data.message);
             setCurrPage("Transactions");
         } else {
             toast.error(response.data.message);
         }
-    };
+    }
 
     const handleEdit = (transaction) => {
         setSingleTransaction(transaction);
         setShowAddMenu(true);
-    };
+    }
 
     return (
         ready && (
@@ -79,25 +73,13 @@ const Transactions = () => {
                                     + Add Transaction
                                 </button>
                                 <div className="w-full p-5 shadow-md shadow-shadow rounded-xl">
-                                    <h1 className="text-xl text-white pl-5 mb-1">
-                                        Transaction Overview
-                                    </h1>
-                                    <p className="text-sm text-gray-400 pl-5 mb-10">
-                                        Line graph showing all the transactions
-                                        of the past
-                                    </p>
-                                    <CustomLineChart
-                                        allTransactions={allTransactions}
-                                    />
+                                    <h1 className="text-xl text-white pl-5 mb-1">Transaction Overview</h1>
+                                    <p className="text-sm text-gray-400 pl-5 mb-10">Line graph showing all the transactions of the past</p>
+                                    <CustomLineChart allTransactions={allTransactions} />
                                 </div>
                                 <div className="w-full p-5 shadow-md shadow-shadow rounded-xl">
-                                    <h1 className="text-xl text-white pl-5">
-                                        Transaction Details
-                                    </h1>
-                                    <p className="text-sm text-gray-400 pl-5 mb-5">
-                                        Table showing details of all the
-                                        transactions
-                                    </p>
+                                    <h1 className="text-xl text-white pl-5">Transaction Details</h1>
+                                    <p className="text-sm text-gray-400 pl-5 mb-5">Table showing details of all the transactions</p>
                                     <div className="w-full text-white grid grid-cols-6 p-5 text-xl uppercase font-semibold max-sm:font-normal max-sm:text-xs max-sm:gap-x-10">
                                         <h1>Title</h1>
                                         <h1>Date</h1>
@@ -140,24 +122,8 @@ const Transactions = () => {
                                                 )}
                                             </div>
                                             <h1>{transaction.category}</h1>
-                                            <h1
-                                                onClick={() =>
-                                                    handleEdit(transaction)
-                                                }
-                                                className="transition-colors cursor-pointer hover:text-green-500"
-                                            >
-                                                <FaEdit />
-                                            </h1>
-                                            <h1
-                                                onClick={() =>
-                                                    handleDelete(
-                                                        transaction._id
-                                                    )
-                                                }
-                                                className="transition-colors cursor-pointer hover:text-red-500"
-                                            >
-                                                <MdDeleteForever />
-                                            </h1>
+                                            <h1 onClick={() => handleEdit(transaction)} className="transition-colors cursor-pointer hover:text-green-500"><FaEdit /></h1>
+                                            <h1 onClick={() => handleDelete(transaction._id)} className="transition-colors cursor-pointer hover:text-red-500"><MdDeleteForever /></h1>
                                         </div>
                                     ))}
                                 </div>
