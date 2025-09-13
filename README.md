@@ -16,27 +16,6 @@ A full-stack web application built with the MERN stack: MongoDB, Express.js, Rea
 
 📦 Deployment ready / Deployed (Vercel / Render)
 
-📂 Folder Structure
-FinanceTracker/
-│── backend/          # Express + Node.js server
-│   ├── models/       # Mongoose models
-│   ├── routes/       # Express routes
-│   ├── controllers/  # API controllers
-│   ├── middlewaress/ # middleware function for auth
-│   ├── config/       # DB & environment config
-│   ├── .env          # Environment variables
-│   ├── package.json  # Root package file (optional)
-│   └── index.js      # Entry point for backend
-│
-│── frontend/           # React client
-│   ├── src/
-│   │   ├── components/ # Reusable UI components
-│   │   ├── pages/      # React pages
-│   │   ├── context/    # Context/Redux state
-│   │   └── App.jsx
-│   └── package.json
-│
-│── README.md
 
 ⚙️ Installation & Setup
 1. Clone the repository
