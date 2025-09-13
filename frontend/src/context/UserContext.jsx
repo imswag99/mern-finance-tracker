@@ -4,7 +4,7 @@ import axios from "axios";
 export const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
-    const url = "http://localhost:4000";
+    const url = "https://mern-finance-tracker-6tgz.onrender.com";
     const [token, setToken] = useState("");
     const [userData, setUserData] = useState("");
     const [currPage, setCurrPage] = useState("");
