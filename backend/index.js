@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cors({
   credentials: true,
-  origin: process.env.CLIENT_URL
+  origin: "https://mern-finance-tracker-henna.vercel.app"
 }));
 app.use(cookieParser());
 connectDb();
