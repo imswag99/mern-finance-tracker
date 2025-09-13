@@ -19,14 +19,27 @@ export const UserContextProvider = ({ children }) => {
     }, []);
 
     useEffect(() => {
-        axios.get(`${url}/api/user/getUser`).then(response => {
-            setUserData(response.data.user.username);
-        })
-    }, [token])
+        axios
+            .get(`${url}/api/user/getUser`, {
+                credentials: "include",
+                headers: { "Content-Type": "application/json" },
+            })
+            .then((response) => {
+                setUserData(response.data.user.username);
+            });
+    }, [token]);
 
     return (
         <UserContext.Provider
-            value={{ url, token, setToken, userData, setUserData, currPage, setCurrPage }}
+            value={{
+                url,
+                token,
+                setToken,
+                userData,
+                setUserData,
+                currPage,
+                setCurrPage,
+            }}
         >
             {children}
         </UserContext.Provider>

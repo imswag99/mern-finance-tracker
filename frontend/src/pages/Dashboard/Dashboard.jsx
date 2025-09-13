@@ -25,7 +25,10 @@ const Dashboard = () => {
 
     const loadTransactionData = async () => {
         await axios
-            .get(`${url}/api/dashboard/getDashboardData`)
+            .get(`${url}/api/dashboard/getDashboardData`, {
+                credentials: "include",
+                headers: { "Content-Type": "application/json" },
+            })
             .then((response) => {
                 if (response.data.success) {
                     setTransactionData(response.data.dashboardData);
