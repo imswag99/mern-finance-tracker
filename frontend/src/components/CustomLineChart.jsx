@@ -15,7 +15,7 @@ const CustomLineChart = ({ allTransactions }) => {
     
     allTransactions.map(item => {
         data.push({
-            name: moment(item.date).format("DD MMM YYYY"),
+            name: moment(item.date).format("YYYY-MM-DD"),
             amount: item.amount
         })
     });
