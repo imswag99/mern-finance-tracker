@@ -103,8 +103,8 @@ const Transactions = () => {
                                                 className={
                                                     transaction.category ===
                                                     "Income"
-                                                        ? "w-[4rem] h-[2rem] flex items-center justify-center gap-2 bg-green-100 text-green-700 text-md rounded-md"
-                                                        : "w-[4rem] h-[2rem] flex items-center justify-center gap-2 bg-red-100 text-red-700 text-md rounded-md"
+                                                        ? "w-[7rem] h-[2.5rem] flex items-center justify-center gap-2 bg-green-100 text-green-700 text-md rounded-md max-sm:w-[4rem] max-sm:h-[2rem]"
+                                                        : "w-[7rem] h-[2.5rem] flex items-center justify-center gap-2 bg-red-100 text-red-700 text-md rounded-md max-sm:w-[4rem] max-sm:h-[2rem]"
                                                 }
                                             >
                                                 <p>
