@@ -91,6 +91,13 @@ const Dashboard = () => {
                                 </div>
                             </div>
                         </div>
+                        <div className="w-[90%] shadow-md shadow-shadow p-7 mb-5 rounded-xl text-white self-center">
+                            <FinanceOverview
+                                totalBalance={transactionData.totalBalance}
+                                totalIncome={transactionData.totalIncome}
+                                totalExpense={transactionData.totalExpense}
+                            />
+                        </div>
                         <div className="w-[90%] shadow-md shadow-shadow p-7 pt-5 rounded-xl self-center">
                             <div className="flex justify-between">
                                 <h1 className="text-white text-xl max-sm:text-md">
@@ -141,13 +148,6 @@ const Dashboard = () => {
                                     </div>
                                 );
                             })}
-                        </div>
-                        <div className="w-[90%] shadow-md shadow-shadow p-7 mb-5 rounded-xl text-white self-center">
-                            <FinanceOverview
-                                totalBalance={transactionData.totalBalance}
-                                totalIncome={transactionData.totalIncome}
-                                totalExpense={transactionData.totalExpense}
-                            />
                         </div>
                     </div>
                 </div>
