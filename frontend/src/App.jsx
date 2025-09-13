@@ -5,7 +5,7 @@ import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./pages/Dashboard/Dashboard";
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = "https://mern-finance-tracker-6tgz.onrender.com";
 axios.defaults.withCredentials = true;
 
 const App = () => {
